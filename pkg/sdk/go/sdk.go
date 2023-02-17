@@ -44,6 +44,14 @@ type User struct {
 	Password string                 `json:"password,omitempty"`
 	Metadata map[string]interface{} `json:"metadata,omitempty"`
 }
+
+type File struct {
+	Id         int       `json:"Id,omitempty"`
+	Name       string    `json:"name,omitempty"`
+	Version    string    `json:"version,omitempty"`
+	DateCreate time.Time `json:"dateCreate,omitempty"`
+}
+
 type PageMetadata struct {
 	Total        uint64                 `json:"total"`
 	Offset       uint64                 `json:"offset"`
@@ -252,6 +260,8 @@ type SDK interface {
 
 	// RetrieveKey retrieves data for the key identified by the provided ID, that is issued by the user identified by the provided key.
 	RetrieveKey(id, token string) (retrieveKeyRes, errors.SDKError)
+
+	UploadFile(file File, name, token string) (string, errors.SDKError)
 }
 
 type mfSDK struct {

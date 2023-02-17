@@ -43,6 +43,7 @@ func main() {
 	// API commands
 	healthCmd := cli.NewHealthCmd()
 	usersCmd := cli.NewUsersCmd()
+	fileCmd := cli.NewFileCmd()
 	thingsCmd := cli.NewThingsCmd()
 	groupsCmd := cli.NewGroupsCmd()
 	channelsCmd := cli.NewChannelsCmd()
@@ -55,6 +56,7 @@ func main() {
 	// Root Commands
 	rootCmd.AddCommand(healthCmd)
 	rootCmd.AddCommand(usersCmd)
+	rootCmd.AddCommand(fileCmd)
 	rootCmd.AddCommand(groupsCmd)
 	rootCmd.AddCommand(thingsCmd)
 	rootCmd.AddCommand(channelsCmd)
